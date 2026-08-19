@@ -39,7 +39,7 @@ textarea{min-height:100px;resize:vertical}.form-row{display:grid;grid-template-c
     </div>
     <label>Nome</label><input id="name" placeholder="Digite seu nome">
     <label>Senha</label><input id="pass" type="password" placeholder="1234">
-    <button class="primary" onclick="login()">Entrar</button>
+    <button class="primary" onclick="loginUser()">Entrar</button>
     <div class="demo">Protótipo gratuito: use qualquer nome e a senha <b>1234</b>.<br>Os dados ficam salvos apenas neste navegador.</div>
   </div>
 </div>
@@ -76,7 +76,7 @@ let data=JSON.parse(localStorage.getItem('ej_data')||'null')||{
 };
 function save(){localStorage.setItem('ej_data',JSON.stringify(data))}
 function setRole(r){state.role=r;studentRole.classList.toggle('active',r==='student');teacherRole.classList.toggle('active',r==='teacher')}
-function login(){
+function loginUser(){
  if(pass.value!=='1234'){toast('Senha de demonstração: 1234');return}
  state.name=name.value.trim()|| (state.role==='teacher'?'Professora':'Aluna');
  login.classList.add('hidden');app.classList.remove('hidden');document.querySelector('.side').classList.toggle('teacher',state.role==='teacher');avatar.textContent=state.name[0].toUpperCase();buildNav();render();
